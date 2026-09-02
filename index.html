@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Murat Oral Medya Ajansı — Dijital Kartvizit</title>
+<meta name="description" content="Murat Oral Medya Ajansı dijital kartviziti. NFC etiketine dokunun veya QR kodu okutun; telefon, WhatsApp, e-posta ve rehbere ekleme tek dokunuşta.">
+<meta name="theme-color" content="#0b0c10">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Murat Oral Medya Ajansı — Dijital Kartvizit">
+<meta property="og:description" content="NFC ile dokun, kartviziti aç: ara, WhatsApp'tan yaz, rehbere ekle.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23ff7a18'/><text x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='bold' text-anchor='middle' fill='%231b1200'>MO</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main class="kabuk">
+  <p class="uyari" id="uyari" hidden></p>
+
+  <article class="kart" id="kart">
+    <span class="rozet-nfc" id="rozetNfc" hidden>● NFC ile açıldı</span>
+
+    <header class="baslik">
+      <div class="monogram" id="monogram" aria-hidden="true">MO</div>
+      <div>
+        <h1 class="ad" id="ad">Murat Oral</h1>
+        <p class="unvan" id="unvan"></p>
+        <p class="ajans" id="ajans"></p>
+      </div>
+    </header>
+
+    <p class="slogan" id="slogan"></p>
+
+    <div class="eylemler" id="eylemler"></div>
+
+    <nav class="sosyal" id="sosyal" aria-label="Sosyal medya hesapları"></nav>
+
+    <h2 class="bolum-basligi">Hizmetler</h2>
+    <ul class="hizmetler" id="hizmetler"></ul>
+
+    <footer class="altbilgi">
+      <span id="adres"></span>
+      <a href="nfc.html">NFC etiketi yaz →</a>
+    </footer>
+  </article>
+
+  <noscript>
+    <p class="uyari" style="margin-top:16px">
+      Bu kartvizit JavaScript ile oluşturulur. Lütfen JavaScript'i etkinleştirin
+      ya da <a href="kartvizit.vcf">kartvizit dosyasını indirin</a>.
+    </p>
+  </noscript>
+</main>
+
+<dialog class="pencere" id="qrPencere" aria-labelledby="qrBaslik">
+  <h2 id="qrBaslik">Kartvizit QR kodu</h2>
+  <p>NFC desteklemeyen telefonlar bu kodu kamerayla okutarak aynı sayfaya ulaşır.</p>
+  <div class="qr-cerceve"><canvas id="qrCanvas" aria-label="Kartvizit adresinin QR kodu" role="img"></canvas></div>
+  <div class="pencere-eylemler">
+    <button class="dugme" type="button" id="qrIndir">PNG olarak indir</button>
+    <button class="dugme" type="button" id="qrKapat">Kapat</button>
+  </div>
+  <p class="durum" id="qrDurum" role="status"></p>
+</dialog>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/qr.js"></script>
+<script src="assets/js/vcard.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

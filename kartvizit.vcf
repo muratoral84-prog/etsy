@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Oral;Murat;;;
+FN:Murat Oral
+ORG:Murat Oral Medya Ajansı
+TITLE:Kurucu & Medya Direktörü
+TEL;TYPE=CELL,VOICE:+90 555 000 00 00
+TEL;TYPE=WORK,VOICE:+905550000000
+EMAIL;TYPE=INTERNET,WORK:iletisim@muratoralmedya.com
+URL:https://muratoralmedya.com
+URL:https://muratoral84-prog.github.io/etsy/
+ADR;TYPE=WORK:;;İstanbul\, Türkiye;;;;
+X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/
+X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/
+X-SOCIALPROFILE;TYPE=youtube:https://youtube.com/
+NOTE:Markanızı doğru kanalda\, doğru hikâyeyle büyütüyoruz.
+REV:2026-09-02T15:58:16Z
+END:VCARD

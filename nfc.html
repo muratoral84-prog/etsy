@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NFC Etiketi Yaz — Murat Oral Medya Ajansı</title>
+<meta name="description" content="Kartvizit adresini veya vCard kaydını NFC etiketine yazma ve doğrulama aracı.">
+<meta name="theme-color" content="#0b0c10">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23ff7a18'/><text x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='bold' text-anchor='middle' fill='%231b1200'>MO</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main class="kabuk">
+  <article class="kart">
+    <h1 class="sayfa-basligi">NFC etiketi yaz</h1>
+    <p class="sayfa-aciklama">
+      Web NFC yalnızca <strong>Android + Chrome</strong> üzerinde ve <strong>HTTPS</strong> adreste çalışır.
+      iPhone'da etiket yazmak için Kestirmeler (Shortcuts) uygulamasının NFC eylemini kullanın.
+    </p>
+
+    <p class="uyari" id="destekUyari" hidden></p>
+
+    <div class="alan">
+      <label for="kayitTuru">Etikete yazılacak kayıt</label>
+      <select id="kayitTuru">
+        <option value="url">Yalnızca adres (URL) — önerilen</option>
+        <option value="vcard">Yalnızca vCard (rehber kaydı)</option>
+        <option value="ikisi">Adres + vCard</option>
+      </select>
+    </div>
+
+    <div class="alan">
+      <label for="urlAlani">Kartvizit adresi</label>
+      <input type="url" id="urlAlani" inputmode="url" autocomplete="url" spellcheck="false">
+    </div>
+
+    <p class="sayfa-aciklama" id="boyutBilgi"></p>
+
+    <div class="eylemler">
+      <button class="dugme dugme--birincil" type="button" id="yazButonu">Etikete yaz</button>
+      <button class="dugme" type="button" id="okuButonu">Etiketi oku / doğrula</button>
+      <button class="dugme" type="button" id="durdurButonu" hidden>Taramayı durdur</button>
+    </div>
+
+    <h2 class="bolum-basligi">Kalıcı kilit</h2>
+    <label class="onay">
+      <input type="checkbox" id="kilitOnay">
+      <span>Yazma işleminden sonra etiketi <strong>kalıcı olarak</strong> salt okunur yap.
+      Bu işlem geri alınamaz; etiket bir daha asla değiştirilemez.</span>
+    </label>
+
+    <ul class="kayit-listesi" id="okunanKayitlar"></ul>
+    <div class="gunluk" id="gunluk" role="log" aria-live="polite">Hazır.</div>
+
+    <footer class="altbilgi">
+      <a href="index.html">← Kartvizite dön</a>
+      <span id="etiketBilgi"></span>
+    </footer>
+  </article>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/vcard.js"></script>
+<script src="assets/js/nfc.js"></script>
+</body>
+</html>
