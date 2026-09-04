@@ -1,0 +1,36 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CLAUDE_PLUGIN_ROOT=\"$CLAUDE_PROJECT_DIR/.claude\" \"$CLAUDE_PROJECT_DIR/.claude/hooks/run-hook.cmd\" session-start",
+            "shell": "bash",
+            "timeout": 30,
+            "statusMessage": "Loading superpowers..."
+          },
+          {
+            "type": "command",
+            "command": "CLAUDE_PLUGIN_ROOT=\"$CLAUDE_PROJECT_DIR/.claude\" node \"$CLAUDE_PROJECT_DIR/.claude/hooks/caveman/caveman-activate.js\"",
+            "timeout": 30,
+            "statusMessage": "Loading caveman mode..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CLAUDE_PLUGIN_ROOT=\"$CLAUDE_PROJECT_DIR/.claude\" node \"$CLAUDE_PROJECT_DIR/.claude/hooks/caveman/caveman-mode-tracker.js\"",
+            "timeout": 30,
+            "statusMessage": "Tracking caveman mode..."
+          }
+        ]
+      }
+    ]
+  }
+}
