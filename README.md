@@ -63,6 +63,37 @@ NFC'siz telefonlar için aynı adres QR koda gömülüdür:
 - `assets/qr-kartvizit.svg` baskı için hazır vektörel kod
   (`node tools/uret.mjs` ile yeniden üretilir).
 
+## Tişört baskı tasarımları (Etsy)
+
+Depoda ayrıca satışa hazır, **özgün** basketbol temalı tişört baskıları var.
+Tasarımlar da yazı tipi de bu depoda üretilir: harfler `tisort.js` içindeki
+blok alfabeden vektör yola çevrilir, böylece SVG'de `<text>` kalmaz ve
+baskıcıda yazı tipi eksikliği sorunu çıkmaz.
+
+```bash
+node tools/tisort-uret.mjs   # urun/tisort/tasarim/*.svg dosyalarını üretir
+```
+
+| Tasarım | Konu |
+| --- | --- |
+| `hang-time` | Havalanan topun yörüngesi + iki satır blok tipografi |
+| `yirmi-uc` | Halka içinde dev **23** numarası |
+| `pota` | Panya, çember, file ve fileden düşen top |
+
+Her tasarım iki palette üretilir: `acik-zemin` (beyaz/bej/gri tişört) ve
+`koyu-zemin` (siyah/lacivert/haki tişört). Çıktılar **3600×4800 px = 12×16 inç
+@ 300 dpi**, şeffaf zeminli, iki mürekkepli — DTG'ye de serigrafiye de uygun.
+
+`tisort.html` sayfası tasarımı tişört manken üzerinde gösterir, kumaş rengini
+değiştirir ve seçili SVG'yi indirir. Başlık, etiket ve açıklama metinleri
+`urun/tisort/etsy-listeleme.md` dosyasındadır.
+
+> **Telif:** çizimlerin hiçbirinde gerçek bir sporcunun adı, portresi, silueti
+> ya da tescilli bir marka/logo yoktur; yalnızca jenerik basketbol tipografisi
+> ve geometrisi kullanılır. Listelemeyi gerçek bir oyuncunun adıyla adlandırmak
+> (tasarım özgün olsa bile) isim/görüntü hakkı ihlalidir — ayrıntı için
+> `urun/tisort/etsy-listeleme.md` içindeki "Yasal not" bölümüne bakın.
+
 ## Dosya düzeni
 
 | Dosya | Görevi |
@@ -77,7 +108,14 @@ NFC'siz telefonlar için aynı adres QR koda gömülüdür:
 | `assets/css/style.css` | Tema ve mobil öncelikli düzen |
 | `kartvizit.vcf` | "Rehbere ekle" düğmesinin indirdiği dosya (üretilir) |
 | `assets/qr-kartvizit.svg` | Baskıya uygun QR kod (üretilir) |
+| `tisort.html` | Tişört baskılarının önizlemesi ve indirilmesi |
+| `assets/js/tisort.js` | Blok alfabe ve metinden vektör yol üretimi |
+| `assets/js/tasarimlar.js` | Tişört baskı tasarımları ve paletleri |
+| `assets/js/tisort-onizleme.js` | Önizleme sayfasının arayüzü |
+| `urun/tisort/tasarim/` | Baskıya hazır SVG'ler (üretilir) |
+| `urun/tisort/etsy-listeleme.md` | Etsy başlık/etiket/açıklama metinleri |
 | `tools/uret.mjs` | Üretilen dosyaları oluşturur |
+| `tools/tisort-uret.mjs` | Tişört tasarımlarını üretir |
 | `tools/testler.mjs` | Bağımlılıksız testler |
 | `tools/capraz-dogrulama.py` | İsteğe bağlı çapraz doğrulama (segno + zxing-cpp) |
 
@@ -89,7 +127,10 @@ node tools/testler.mjs
 
 Biçim bilgisi (BCH 15,5) tablosunun 32 kombinasyonunu, sürüm seçimini, matris
 geometrisini, bulucu desenlerini, kapasite hatasını, referans matris özetlerini
-ve vCard kurallarını doğrular. Bağımlılık gerektirmez.
+ve vCard kurallarını doğrular. Tişört tarafında ise alfabe kapsamını, ölçek ve
+hizalamayı, her glifin kendi kutusunda kaldığını, çokgen sarım yönünü (ters
+sarım `nonzero` kuralında gövdeyi deler) ve tasarımların baskı alanı dışına
+taşmadığını kontrol eder. Bağımlılık gerektirmez.
 
 İsteğe bağlı çapraz doğrulama (bağımsız kütüphanelerle):
 

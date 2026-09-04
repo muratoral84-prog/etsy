@@ -292,3 +292,81 @@ dialog.pencere p { margin: 0 0 16px; font-size: 13px; color: var(--metin-soluk);
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ------------------------------------------------------------------ */
+/* tisort.html — baskı tasarımı önizlemesi                             */
+/* ------------------------------------------------------------------ */
+
+.kabuk-genis { max-width: 560px; }
+.baslik-sade { align-items: flex-start; }
+
+.manken {
+  margin-top: 22px;
+  padding: 14px;
+  border: 1px solid var(--kenar);
+  border-radius: 22px;
+  background:
+    radial-gradient(420px 260px at 50% 0%, rgba(255, 255, 255, .06), transparent 70%),
+    rgba(0, 0, 0, .22);
+}
+.tisort { display: block; width: 100%; height: auto; filter: drop-shadow(0 24px 34px rgba(0, 0, 0, .55)); }
+
+.secim { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.secenek {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid var(--kenar);
+  border-radius: 999px;
+  background: var(--kart);
+  color: var(--metin);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--gecis), background var(--gecis), transform var(--gecis);
+  -webkit-tap-highlight-color: transparent;
+}
+.secenek:hover { border-color: rgba(255, 122, 24, .5); background: rgba(255, 122, 24, .1); }
+.secenek:active { transform: scale(.985); }
+.secenek:focus-visible { outline: 2px solid var(--vurgu-2); outline-offset: 3px; }
+.secenek.secili {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--vurgu), var(--vurgu-2));
+  color: #1b1200;
+  font-weight: 700;
+}
+
+.secenek .nokta {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .35);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+}
+
+.eylemler-satir { grid-template-columns: 1fr 1fr; }
+
+.bilgi { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.bilgi li {
+  padding: 10px 14px;
+  border: 1px solid var(--kenar);
+  border-left: 3px solid rgba(255, 122, 24, .55);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .03);
+  font-size: 13px;
+  line-height: 1.5;
+  color: #d7dae1;
+}
+
+@media (max-width: 380px) {
+  .eylemler-satir { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secenek { transition: none; }
+}

@@ -32,6 +32,8 @@ jobs:
           # kartvizit.vcf içindeki REV alanı her üretimde değişir, karşılaştırmadan çıkarılır
           git diff --exit-code -- assets/qr-kartvizit.svg
           git diff --stat -- kartvizit.vcf
+          node tools/tisort-uret.mjs
+          git diff --exit-code -- urun/tisort/tasarim
 
   deploy:
     needs: test
