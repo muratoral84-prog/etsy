@@ -13,5 +13,5 @@ python3 render.py        # kareleri çizer (build/part*.mp4)
 python3 audio_mix.py     # müzik + efekt + anlatım
 ffmpeg -f concat -safe 0 -i build/parts.txt -i build/final_audio.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest cikti/pitircik_gokkusagi.mp4
 ```
-Senaryo `script.py` içinde; `render.py --png 60 135` ile tek kare önizleme alınabilir.
+Küçük resim: `python3 thumbnail.py`. Senaryo `script.py` içinde; `render.py --png 60 135` ile tek kare önizleme alınabilir.
 Yazı tipi: Baloo 2 (OFL).
